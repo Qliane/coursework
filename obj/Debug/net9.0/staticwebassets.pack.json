@@ -1,0 +1,433 @@
+{
+  "Files": [
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\Coursework.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Coursework.gaq8lulu40.bundle.scp.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\auth.css",
+      "PackagePath": "staticwebassets\\css\\auth.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\chat.css",
+      "PackagePath": "staticwebassets\\css\\chat.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\email-confirm.css",
+      "PackagePath": "staticwebassets\\css\\email-confirm.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\first-login.css",
+      "PackagePath": "staticwebassets\\css\\first-login.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\loader.css",
+      "PackagePath": "staticwebassets\\css\\loader.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\page.css",
+      "PackagePath": "staticwebassets\\css\\page.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\plan.css",
+      "PackagePath": "staticwebassets\\css\\plan.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\privacy.css",
+      "PackagePath": "staticwebassets\\css\\privacy.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\registration.css",
+      "PackagePath": "staticwebassets\\css\\registration.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\root.css",
+      "PackagePath": "staticwebassets\\css\\root.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\settings.css",
+      "PackagePath": "staticwebassets\\css\\settings.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\shell.css",
+      "PackagePath": "staticwebassets\\css\\shell.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\toast.css",
+      "PackagePath": "staticwebassets\\css\\toast.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\fonts\\Inter28pt-Medium.woff",
+      "PackagePath": "staticwebassets\\fonts\\Inter28pt-Medium.woff"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\fonts\\Inter28pt-Medium.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Inter28pt-Medium.woff2"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\fonts\\Inter28pt-Regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\Inter28pt-Regular.woff"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\fonts\\Inter28pt-Regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\Inter28pt-Regular.woff2"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\fonts\\fontface.css",
+      "PackagePath": "staticwebassets\\fonts\\fontface.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\arrow.svg",
+      "PackagePath": "staticwebassets\\images\\arrow.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\at.svg",
+      "PackagePath": "staticwebassets\\images\\at.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\avatar.svg",
+      "PackagePath": "staticwebassets\\images\\avatar.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\burger.svg",
+      "PackagePath": "staticwebassets\\images\\burger.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\calendar.svg",
+      "PackagePath": "staticwebassets\\images\\calendar.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\chart.svg",
+      "PackagePath": "staticwebassets\\images\\chart.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\chat.svg",
+      "PackagePath": "staticwebassets\\images\\chat.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\check.svg",
+      "PackagePath": "staticwebassets\\images\\check.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\dumbbells.svg",
+      "PackagePath": "staticwebassets\\images\\dumbbells.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\gear.svg",
+      "PackagePath": "staticwebassets\\images\\gear.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\toasts\\0.svg",
+      "PackagePath": "staticwebassets\\images\\toasts\\0.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\toasts\\1.svg",
+      "PackagePath": "staticwebassets\\images\\toasts\\1.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\toasts\\3.svg",
+      "PackagePath": "staticwebassets\\images\\toasts\\3.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\up.svg",
+      "PackagePath": "staticwebassets\\images\\up.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\YandexID.js",
+      "PackagePath": "staticwebassets\\js\\YandexID.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\YandexID_main.js",
+      "PackagePath": "staticwebassets\\js\\YandexID_main.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\chat.js",
+      "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\loader.js",
+      "PackagePath": "staticwebassets\\js\\loader.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\plan.js",
+      "PackagePath": "staticwebassets\\js\\plan.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\shell.js",
+      "PackagePath": "staticwebassets\\js\\shell.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\toast.js",
+      "PackagePath": "staticwebassets\\js\\toast.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery\\dist\\jquery.slim.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\jquery\\dist\\jquery.slim.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.slim.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Coursework.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.Coursework.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.Coursework.props",
+      "PackagePath": "build\\Coursework.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.Coursework.props",
+      "PackagePath": "buildMultiTargeting\\Coursework.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.Coursework.props",
+      "PackagePath": "buildTransitive\\Coursework.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

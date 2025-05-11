@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/auth.css">
+    <link rel="stylesheet" href="~/css/toast.css">
+    <title>@ViewData["Title"] - Coursework</title>
+    <script type="importmap"></script>
+</head>
+<body>
+    <header>
+        <main>
+        <section id="content">
+            <div id="logo">
+                <h1>FitAI</h1>
+            </div>
+            @RenderBody()
+        </section>
+    </main>
+    <script src="~/js/toast.js"></script>
+    <script src="~/js/login.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

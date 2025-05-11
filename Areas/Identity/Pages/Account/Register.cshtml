@@ -1,0 +1,51 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<form id="form" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <label class="input">
+        <span>
+            Почта
+        </span>
+        <input type="email" asp-for="Input.Email" name="email" placeholder="Введите адрес своей электронной почты"
+            autocomplete="username" aria-required="true">
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </label>
+    <label class="input">
+        <span>
+            Пароль
+        </span>
+        <input type="password" name="password" placeholder="Придумайте пароль" asp-for="Input.Password"
+            autocomplete="new-password" aria-required="true">
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </label>
+    <label class="input">
+        <span>
+            Подтвердите пароль
+        </span>
+        <input type="password" name="password-confirm" placeholder="Введите пароль ещё раз"
+            asp-for="Input.ConfirmPassword" autocomplete="new-password">
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </label>
+    <div class="form-footer">
+        <label for="privacy" class="input-checkbox">
+            <input type="checkbox" name="privacy" id="privacy" hidden>
+            <label for="privacy" class="checkbox">
+
+            </label>
+            <div class="text">
+                <div>
+                    Я соглашаюсь с <a href="./confidence.html">Политикой конфиденциальности</a>
+                </div>
+            </div>
+        </label>
+        <button type="submit">Зарегистрироваться</button>
+        <a href="/Identity/Account/Login">Есть аккаунт? Войдите!</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
