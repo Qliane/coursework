@@ -1,4 +1,4 @@
-import { createApp } from './vue.esm-browser.js'
+import { createApp, reactive } from './vue.esm-browser.js'
 
 
 class SortedArray {
@@ -10,15 +10,8 @@ class SortedArray {
     }
 
     push(item) {
-        const lenght = this.data.length;
-        for (let i = 0; i < lenght; i++) {
-            const item1 = this.data[i];
-            if (this.handler(item1, item) < 0) {
-                this.#insert(item, i);
-                return;
-            }
-        }
         this.data.push(item);
+        this.update();
     }
 
     getIndexById(id) {
@@ -44,7 +37,7 @@ class SortedArray {
     }
 }
 
-const app = createApp({
+window.app = createApp({
     setup() {
         return {
         }
@@ -86,7 +79,12 @@ app.component('list-item', {
             const value = prompt("Введите новое значение", this.t);
             if (value !== null) {
                 this.item.text = value;
+                updateItem(this.item);
             }
+        },
+        onSelect(){
+            this.item.selected = (!this.item.selected ? 1 : 0)
+            updateItem(this.item);
         },
     },
 
@@ -95,7 +93,7 @@ app.component('list-item', {
         <div className="content">
             <div className="draggable" v-on:touchstart="dwn" v-on:mousedown="dwn" v-on:touchmove.prevent="touchMove">
             </div>
-            <button v-bind:data-state="item.selected" v-on:click="item.selected = (!item.selected ? 1 : 0)"  v-bind:data-id="id" class="checkbox">
+            <button v-bind:data-state="item.selected" v-on:click="onSelect"  v-bind:data-id="id" class="checkbox">
 
             </button>
             <div class="text">
@@ -173,7 +171,7 @@ app.component('tooltip-color', {
     template: `
     <div class="tooltip color" v-bind:style="style">
         <div className="colors">
-            <div class="color" v-for="color in colors" v-bind:style="{background: color}" v-bind:class="{ 'empty': color == null }" v-on:click="()=>{onCheck(color)}"></div>
+            <button class="color" v-for="color in colors" v-bind:style="{background: color}" v-bind:class="{ 'empty': color == null }" v-on:click="()=>{onCheck(color)}"></button>
         </div>
         <div className="triangle" v-bind:style="triangleStyle">
         </div>
@@ -181,81 +179,13 @@ app.component('tooltip-color', {
 })
 
 
-const sa = new SortedArray((a, b) => a.order - b.order, [
-    {
-        id: Math.random(),
-        order: Math.random(),
-        text: "Стен",
-    },
-    {
-        id: Math.random(),
-        order: Math.random(),
-        text: "Кайл",
-    },
-    {
-        id: Math.random(),
-        order: Math.random(),
-        text: "Джон Ромеро",
-    },
-]);
-
 const dragAndDropStates = {
     NONE: 0,
     CLICKED: 1,
     RELEASED: 2
 };
 
-const data = new SortedArray((a, b) => b.order - a.order, [
-    {
-        id: 0,
-        order: 2,
-        color: "#e19191",
-        selected: 1,
-        text: "Убить Джона Леннона",
-    },
-    {
-        id: 1,
-        color: "#e1d091",
-        order: 1,
-        selected: 1,
-        text: "Убить Курта Кобейна",
-    },
-    {
-        id: 2,
-        color: "#c6e191",
-        order: 0,
-        selected: 1,
-        text: "Убить Фредди Меркьюри",
-    },
-    {
-        id: Math.random(),
-        color: "#91d8e1",
-        order: 3,
-        selected: 0,
-        text: "Надо радоваться",
-    },
-    {
-        id: Math.random(),
-        color: "#9991e1",
-        order: 4,
-        selected: 0,
-        text: "Не надо напрягаться",
-    },
-    {
-        id: Math.random(),
-        color: "#e191bc",
-        order: 5,
-        selected: 0,
-        text: "Люблю чай, как панда любит бамбук",
-    },
-    {
-        id: Math.random(),
-        color: null,
-        order: 6,
-        selected: 0,
-        text: "Не выделено :(",
-    },
-]);
+const data = reactive(new SortedArray((a, b) => b.order - a.order, []));
 
 
 app.component('list', {
@@ -265,7 +195,7 @@ app.component('list', {
 
     data() {
         return {
-            items: data,
+            items: (data),
 
             tooltips: [
             ],
@@ -280,7 +210,6 @@ app.component('list', {
     },
 
     methods: {
-
         select(items) {
             return items.filter((item) => (item.selected == (this.checked == "1")));
         },
@@ -290,24 +219,28 @@ app.component('list', {
                 this.draggableElementIndex = element.index;
         },
 
-        switch(i1, i2) {
-            const e = (i) => {
-                let index = 0;
-                for (const element of this.items.data) {
-                    if (element.selected == (this.checked == "1")) {
-                        i--;
-                    }
-                    if (i < 0) return index;
-                    index++;
+        localIdexToDataIndex(i){
+            let index = 0;
+            for (const element of this.items.data) {
+                if (element.selected == (this.checked == "1")) {
+                    i--;
                 }
-                return null;
+                if (i < 0) return index;
+                index++;
             }
-            const i1_ = e(i1);
-            const i2_ = e(i2);
+            return null;
+        },
+
+        switch(i1, i2) {
+            const i1_ = this.localIdexToDataIndex(i1);
+            const i2_ = this.localIdexToDataIndex(i2);
             const temp = this.items.data[i1_].order;
             this.items.data[i1_].order = this.items.data[i2_].order;
             this.items.data[i2_].order = temp;
             this.items.update();
+
+            updateItem(this.items.data[i1_]);
+            updateItem(this.items.data[i2_]);
 
             if (i2 == this.draggableElementIndex) {
                 this.draggableElementIndex = i1;
@@ -358,8 +291,10 @@ app.component('list', {
             this.selectState = dragAndDropStates.NONE;
         },
         deleteItem(index) {
+            const i = this.localIdexToDataIndex(index);
             if (confirm("Вы действительно хотите удалить запись?")) {
-                this.items.remove(index);
+                removeItem(data.data[i])
+                this.items.remove(i);
             }
         },
 
@@ -394,6 +329,7 @@ app.component('list', {
             const item = this.items.data.find((v) => v.id == id);
             if (item !== undefined) {
                 item.color = color;
+                updateItem(item);
                 this.deleteToolTip(id);
             }
 
@@ -408,7 +344,7 @@ app.component('list', {
                 <div v-if="checked == '0'"> У вас нет активных задач. </div>
                 <div v-else> Когда вы выполните задачу, она будет здесь </div>
             </div>
-            <list-item v-for="(item, index) in select(items.data)" v-bind:createToolTip="createToolTip" v-bind:deleteItem="deleteItem.bind(this, index)" v-bind:item="item" v-bind:index="index" v-bind:touchMove="touchMove" v-bind:id="item.id" v-bind:order="item.order" v-bind:t="item.text" v-bind:mouseoverHandle="onMouseOver" v-bind:moveHandler="onMoveStart"></list-item>
+            <list-item v-for="(item, index) in select(items.data)" v-bind:key="item.id" v-bind:createToolTip="createToolTip" v-bind:deleteItem="deleteItem.bind(this, index)" v-bind:item="item" v-bind:index="index" v-bind:touchMove="touchMove" v-bind:id="item.id" v-bind:order="item.order" v-bind:t="item.text" v-bind:mouseoverHandle="onMouseOver" v-bind:moveHandler="onMoveStart"></list-item>
         </div>
         <tooltip-color v-for="(item, index) in tooltips" v-bind:key="item.id" v-bind:data="item" v-bind:onCheckHandler="tooltipHandler"></tooltip-color>
     </div>
@@ -417,3 +353,79 @@ app.component('list', {
 
 
 app.mount('#app');
+
+function updateItem(item) {
+    const token = document.querySelector("input[name='__RequestVerificationToken']").value;
+    const formData = new FormData();
+    formData.append('Id', item.id);
+    formData.append('Order', item.order);
+    formData.append('Color', item.color);
+    formData.append('Selected', item.selected);
+    formData.append('Text', item.text);
+
+    fetch("?handler=Update", {
+        method: "POST",
+        headers: {
+            "RequestVerificationToken": token
+        },
+        body: formData,
+    }).then(v => v.json().then(object => {
+        console.log(object);
+    }));
+}
+
+function removeItem(item) {
+    const token = document.querySelector("input[name='__RequestVerificationToken']").value;
+    const formData = new FormData();
+    formData.append('Id', item.id);
+
+    fetch("?handler=Remove", {
+        method: "POST",
+        headers: {
+            "RequestVerificationToken": token
+        },
+        body: formData,
+    }).then(v => v.json().then(object => {
+        console.log(object);
+    }));
+}
+
+
+window.addEventListener('load', () => {
+    const url = window.location.href;
+    const id = url.match(/\/List\/(\d+)/)[1];
+
+    const createTaskButton = document.getElementById('button-create-task');
+
+    createTaskButton?.addEventListener('click', e => {
+        let text = prompt("Текст новой задачи");
+        if (text == null) return;
+        text = encodeURIComponent(text);
+        fetch("?handler=AddTask&Text=" + text, {
+            method: "GET"
+        }).then((value) => {
+            value.json().then(object => {
+                if (object.color == "#000000") {
+                    object.color = null;
+                }
+                console.log(object);
+                data.push(object);
+            })
+        })
+        e.preventDefault();
+    })
+
+    fetch("?handler=GetTasks", {
+        method: "GET"
+    }).then((value) => {
+        value.json().then(object => {
+            for (const item of object) {
+                if (item.color == "#000000") {
+                    item.color = null;
+                }
+            }
+            data.data = object;
+            data.update();
+        })
+    })
+})

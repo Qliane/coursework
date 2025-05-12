@@ -45,9 +45,6 @@ public class IndexModel : LoginModel
         var user = await this.GetUser();
         if (string.IsNullOrEmpty(Name))
             return BadRequest("Name is required");
-        Console.WriteLine("===================");
-        Console.WriteLine(Name);
-        Console.WriteLine("===================");
         if(user == null) return new NotFoundResult();
         var list = new List(){
             Text = Name,

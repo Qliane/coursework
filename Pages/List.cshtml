@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="~/css/list.css">
 }
 
+@Html.AntiForgeryToken()
 <div id="app">
     <div id="active-tasks" class="tasks">
         <div class="content">
             <div class="title">
-                Текущие задачи <button class="create-task circle-button circle-button-30">
+                Текущие задачи <button id="button-create-task" class="create-task circle-button circle-button-30">
                 </button></div>
 
             <list v-bind:key="0" v-bind:checked="0"></list>
@@ -23,7 +24,7 @@
             <div class="title">
                 Выполненные задачи
             </div>
-           <list v-bind:key="1" v-bind:checked="1"></list>
+            <list v-bind:key="1" v-bind:checked="1"></list>
         </div>
     </div>
 </div>

@@ -8,6 +8,7 @@ public class ApplicationUser : IdentityUser
 {
     // Коллекция списков пользователя
     public ICollection<List> Lists { get; set; } = new List<List>();
+
 }
 
 public class List
