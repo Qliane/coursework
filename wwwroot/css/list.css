@@ -1,0 +1,166 @@
+#instruments {
+    display: flex;
+    gap: 15px;
+}
+
+#instruments .circle-button {
+    background-color: #D4DCE3;
+}
+
+#list {
+    margin-top: 20px;
+}
+
+.tasks>.content>.title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+}
+
+.list-item-button>button::after {
+    width: 12px;
+    display: block;
+}
+
+.delete-button::after {
+    content: url(../images/trash-2.svg);
+}
+
+.color-button::after {
+    content: url(../images/palette.svg);
+}
+
+.edit-button::after {
+    content: url(../images/edit-note.svg);
+}
+
+
+.list-item-button>button {
+    border: none;
+    background-color: transparent;
+    appearance: none;
+    cursor: pointer;
+}
+
+
+.list-item .draggable:active {
+    cursor: grabbing;
+}
+
+.list-item .draggable {
+    cursor: grab;
+}
+
+.list {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.list>.item button.checkbox {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.list>.item .text {
+    flex-shrink: 10;
+}
+
+.list>.item {
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+
+}
+
+.list>.item>.buttons,
+.list>.item>.content {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.tooltip.color>.colors {
+    display: flex;
+    gap: 10px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    width: 277px;
+    height: 49px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--blue)
+}
+
+.tooltip.color {
+    position: absolute;
+}
+
+.tooltip.color>.colors>.color.empty {
+    background-color: transparent;
+    border: 1px solid black;
+
+}
+
+.tooltip.color>.colors>.color {
+    width: 25px;
+    height: 25px;
+    background-color: #C6E191;
+    border-radius: 50%;
+}
+
+
+.tooltip.color>.triangle {
+    width: 25px;
+    height: 17px;
+    background-color: var(--blue);
+    clip-path: polygon(0% 0%, 50% 100%, 100% 0%);
+    position: absolute;
+    pointer-events: none;
+    touch-action: none;
+}
+
+#completed-tasks,
+#active-tasks{
+    margin-top: 20px;
+}
+
+
+#completed-tasks .list>.item .text {
+    text-decoration: line-through;
+}
+.create-task::after {
+    content: url(../images/plus.svg);
+    display: block;
+}
+
+#content>.data>.title>input {
+    background-color: transparent;
+    appearance: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: inherit;
+    border-bottom: 1px solid #D4DCE3;
+}
+
+
+.list-item {
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.list-item .draggable::after {
+    content: url(../images/drag.svg);
+}
+
+.items {
+    user-select: none;
+}
+
+@media (max-width: 530px) {
+    #content>.data>.title>input {
+        width: 100%;
+    }
+}

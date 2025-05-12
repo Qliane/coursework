@@ -21,6 +21,14 @@
       "PackagePath": "staticwebassets\\css\\first-login.css"
     },
     {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\list.css",
+      "PackagePath": "staticwebassets\\css\\list.css"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\lists.css",
+      "PackagePath": "staticwebassets\\css\\lists.css"
+    },
+    {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\css\\loader.css",
       "PackagePath": "staticwebassets\\css\\loader.css"
     },
@@ -113,12 +121,52 @@
       "PackagePath": "staticwebassets\\images\\check.svg"
     },
     {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\checked.svg",
+      "PackagePath": "staticwebassets\\images\\checked.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\drag.svg",
+      "PackagePath": "staticwebassets\\images\\drag.svg"
+    },
+    {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\dumbbells.svg",
       "PackagePath": "staticwebassets\\images\\dumbbells.svg"
     },
     {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\edit-note.svg",
+      "PackagePath": "staticwebassets\\images\\edit-note.svg"
+    },
+    {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\gear.svg",
       "PackagePath": "staticwebassets\\images\\gear.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\list-empty.png",
+      "PackagePath": "staticwebassets\\images\\list-empty.png"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\lists.svg",
+      "PackagePath": "staticwebassets\\images\\lists.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\palette.svg",
+      "PackagePath": "staticwebassets\\images\\palette.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\plus.svg",
+      "PackagePath": "staticwebassets\\images\\plus.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\report.svg",
+      "PackagePath": "staticwebassets\\images\\report.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\reports.svg",
+      "PackagePath": "staticwebassets\\images\\reports.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\rock.png",
+      "PackagePath": "staticwebassets\\images\\rock.png"
     },
     {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\toasts\\0.svg",
@@ -131,6 +179,22 @@
     {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\toasts\\3.svg",
       "PackagePath": "staticwebassets\\images\\toasts\\3.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\trash-1.svg",
+      "PackagePath": "staticwebassets\\images\\trash-1.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\trash-2-gray.svg",
+      "PackagePath": "staticwebassets\\images\\trash-2-gray.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\trash-2.svg",
+      "PackagePath": "staticwebassets\\images\\trash-2.svg"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\triangle.svg",
+      "PackagePath": "staticwebassets\\images\\triangle.svg"
     },
     {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\images\\up.svg",
@@ -147,6 +211,14 @@
     {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\chat.js",
       "PackagePath": "staticwebassets\\js\\chat.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\list.js",
+      "PackagePath": "staticwebassets\\js\\list.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\lists.js",
+      "PackagePath": "staticwebassets\\js\\lists.js"
     },
     {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\loader.js",
@@ -167,6 +239,10 @@
     {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\toast.js",
       "PackagePath": "staticwebassets\\js\\toast.js"
+    },
+    {
+      "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\js\\vue.esm-browser.js",
+      "PackagePath": "staticwebassets\\js\\vue.esm-browser.js"
     },
     {
       "Id": "W:\\Рабочий стол\\4 семестр\\Курсовая работа\\Coursework\\Coursework\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -1,48 +1,88 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Coursework.Pages;
 
-public class IndexModel : PageModel
+[Authorize] 
+public class IndexModel : LoginModel
 {
     private readonly ILogger<IndexModel> _logger;
-    private readonly UserManager<ApplicationUser> _userManager;
-    private readonly AppDbContext _context;
-
-    public IndexModel(ILogger<IndexModel> logger, UserManager<ApplicationUser> userManager, AppDbContext context)
+    public IndexModel(ILogger<IndexModel> logger, UserManager<ApplicationUser> userManager, AppDbContext context) : base(userManager, context)
     {
         _logger = logger;
-        _userManager = userManager;
-        _context = context;
     }
 
-    public async Task OnGet()
-    {
-        var user = await _userManager.GetUserAsync(User);
 
+    public static List<Item> GetUncompletedItems(List list){
+        var items = list.Items;
+        var outList = new List<Item>();
+        foreach (var item in items){
+            if(!item.IsCompleted){
+                outList.Add(item);
+            }
+        }
+        return outList;
+    }
+
+    public List<Item> GetCompletedItems(List list){
+        var items = list.Items;
+        var outList = new List<Item>();
+        foreach (var item in items){
+            if(item.IsCompleted){
+                outList.Add(item);
+            }
+        }
+        return outList;
+    }
+
+
+    [BindProperty]  // Для привязки данных из запроса
+    public string Name { get; set; }
+    public async Task<ActionResult> OnPostAddListAsync(){
+        var user = await this.GetUser();
+        if (string.IsNullOrEmpty(Name))
+            return BadRequest("Name is required");
+        Console.WriteLine("===================");
+        Console.WriteLine(Name);
+        Console.WriteLine("===================");
+        if(user == null) return new NotFoundResult();
+        var list = new List(){
+            Text = Name,
+            UserId = user.Id,
+            User = user,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        _context.Lists.Add(list);
+        _context.SaveChanges();
+        
+        return new JsonResult(new List{
+            Id = list.Id,
+            Text = list.Text,
+            CreatedAt = list.CreatedAt,
+            NextItemOrder = list.NextItemOrder
+        });
+    }
+
+    public async Task<ActionResult> OnGet()
+    {
+
+        ViewData["IsShowButton"] = "1";
+        var user = await _userManager.GetUserAsync(User);
+        this.ViewData["UserEmail"] = await GetUserEmail();
         if (user != null)
         {
-            if(_context.Lists.Count() <= 0){
-                List l = new List
-                {
-                    NextItemOrder = 0,
-                    UserId = user.Id,
-                    Text = "Хотелочки",
-                    CreatedAt = DateTime.UtcNow
-                };
-
-                _context.Lists.Add(l);
-                _context.SaveChanges();
-                Console.WriteLine(user.Id);
-            }
-
-            Console.WriteLine(user.Id);
+            var lists = _context.Lists.Where(p=>p.UserId == user.Id);
+            this.ViewData["IsEmpty"] = lists.Count() <= 0;
+            this.ViewData["Lists"] = lists.ToList();
+            return new PageResult();
         }
         else
         {
-            Console.WriteLine("User is null");
+            return Redirect("/Identity/Account/Login");
         }
     }
 }

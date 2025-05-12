@@ -1,10 +1,89 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Списки задач";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@section Styles {
+    <link rel="stylesheet" href="~/css/lists.css">
+}
+
+@section Scripts{
+    <script src="~/js/lists.js"></script>
+}
+
+<div id="list">
+    @Html.AntiForgeryToken()
+    @if ((bool)ViewData["IsEmpty"] == true)
+    {
+        <div id="list-empty">
+            <div class="content">
+                <div class="image"><img src="./images/list-empty.png" alt="Список пуст"></div>
+                <div class="data">
+                    <div class="text">
+                        <div class="title">У вас пока нет списков дел</div>
+                        <div class="text">Создайте новый список дел, чтобы стать продуктивнее</div>
+                    </div>
+                    <a asp-page="/NewList" class="button">Стать продуктивнее</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div id="lists">
+            @foreach (var list in ((List<List>)ViewData["Lists"]))
+            {
+                <div class="list">
+                    <div class="content">
+                        <div class="title">
+                            <a href="/List/@list.Id">@list.Text</a>
+                        </div>
+                        <div class="content">
+                            @if (list.Items.Count() == 0)
+                            {
+                                <div>Список пуст</div>
+                            }
+                            else
+                            {
+                                <div class="active">
+                                    @foreach (var item in list.Items)
+                                    {
+                                        if (item.IsCompleted) continue;
+                                        <div class="tasks">
+                                            <div class="task">
+                                                <div class="text">
+                                                    @item.Text
+                                                </div>
+                                                <div class="completed">
+                                                    <button class="checkbox small" data-id="0" data-state="0"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="completed">
+                                    @foreach (var item in list.Items)
+                                    {
+                                        if (!item.IsCompleted) continue;
+                                        <div class="tasks">
+                                            <div class="task">
+                                                <div class="text">
+                                                    @item.Text
+                                                </div>
+                                                <div class="completed">
+                                                    <button class="checkbox small" data-id="0" data-state="1"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
 </div>

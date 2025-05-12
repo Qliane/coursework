@@ -93,19 +93,49 @@ body>main {
     position: absolute;
     right: 15px;
     bottom: 30px;
+}
+.circle-button-30{
+    width: 30px;
+    height: 30px;
+}
+.circle-button-40{
+    width: 40px;
+    height: 40px;
+    width: 50px;
+    height: 50px;
+}
+
+.button:hover{
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+.circle-button:hover{
+    box-shadow: -4px 4px 4px 0px rgba(255, 255, 255, 0.5) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.hide-shell {
+    width: 50px;
+    height: 50px;
+}
+
+.button,
+.circle-button,
+.hide-shell {
+    text-decoration: none;
     cursor: pointer;
     appearance: none;
     border: none;
     background-color: var(--light-blue);
-    width: 50px;
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
     -webkit-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     -moz-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.hide-shell,
+.circle-button{
+    border-radius: 50%;
 }
 
 .hide-shell>img {
@@ -167,6 +197,9 @@ body>main {
 
 #content>.data>.title{
     font-size: 36px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 @media (max-width: 767px) {

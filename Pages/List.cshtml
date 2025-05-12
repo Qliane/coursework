@@ -1,0 +1,33 @@
+@page "{ListID:int}"
+@model ListModel
+@{
+    var list = (List)ViewData["List"];
+    ViewData["Title"] = list.Text;
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/list.css">
+}
+
+<div id="app">
+    <div id="active-tasks" class="tasks">
+        <div class="content">
+            <div class="title">
+                Текущие задачи <button class="create-task circle-button circle-button-30">
+                </button></div>
+
+            <list v-bind:key="0" v-bind:checked="0"></list>
+        </div>
+    </div>
+    <div id="completed-tasks" class="tasks">
+        <div class="content">
+            <div class="title">
+                Выполненные задачи
+            </div>
+           <list v-bind:key="1" v-bind:checked="1"></list>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="module" src="~/js/list.js"></script>
+}

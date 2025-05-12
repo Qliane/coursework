@@ -38,6 +38,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
 });
 
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     // Настройка куки
@@ -56,6 +57,17 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 
 var app = builder.Build();
+
+app.Use(async (context, next) =>
+{
+    await next();
+    
+    if (context.Response.StatusCode == 404)
+    {
+        context.Request.Path = "/NotFound";
+        await next();
+    }
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
