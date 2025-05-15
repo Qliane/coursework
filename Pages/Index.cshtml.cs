@@ -64,6 +64,14 @@ public class IndexModel : LoginModel
         });
     }
 
+    public async Task<ActionResult> OnGetGenerateUserReport()
+    {
+        var rg = new ReportGenerator(this._context);
+        var user = await this.GetUser();
+        if (user == null) return new NotFoundResult();
+        var report = rg.CreateReport(user);
+        return Content(report, "text/html");
+    }
     public async Task<ActionResult> OnGet()
     {
 

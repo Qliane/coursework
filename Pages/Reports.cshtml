@@ -27,16 +27,16 @@
                         }
                     </div>
                     <div class="title">
-                        <a href="/ViewReport/0">Отчёт о записи "Хотелочки"</a>
+                        <a href="/ViewReport/0">@item.Title</a>
                     </div>
                     <div class="content">
-                        Дата создания: 15.05.2025 15:10
+                        Дата создания: @item.createdAt.ToString("dd.MM.yyyy HH:mm")
                     </div>
                     <div class="buttons">
-                        <a href="" class="circle-button circle-button-30">
+                        <a href="?handle=Download&id=@item.Id" download="@item.Title" class="circle-button circle-button-30">
                             <img src="./images/download.svg" alt="">
                         </a>
-                        <a href="" class="circle-button circle-button-30">
+                        <a href="?handle=Delete&id=@item.Id" class="circle-button circle-button-30">
                             <img src="./images/trash-2.svg" alt="">
                         </a>
                     </div>

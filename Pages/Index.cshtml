@@ -12,6 +12,14 @@
     <script src="~/js/lists.js"></script>
 }
 
+<div id="buttons">
+    <a href="?handler=GenerateUserReport" download="Отчёт о пользователе" class="button-link">
+        <div class="circle-button circle-button-40">
+            <img src="~/images/report.svg" alt="">
+        </div>
+        <span>Создать отчёт о пользователе</span>
+    </a>
+</div>
 <div id="list">
     @Html.AntiForgeryToken()
     @if ((bool)ViewData["IsEmpty"] == true)

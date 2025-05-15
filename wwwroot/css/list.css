@@ -8,12 +8,12 @@
 }
 
 
-#butons{
+#buttons{
     margin-top: 15px;
     display: flex;
     gap: 10px;
 }
-#butons>a>img{
+#buttons>a>img{
     width: 14px;
 }
 

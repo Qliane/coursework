@@ -71,6 +71,17 @@ namespace Coursework.Pages
                 return "<html><body><h1>Пользователь не найден</h1></body></html>";
             }
 
+            _context.Entry(user)
+                .Collection(u => u.Lists)
+                .Load();
+
+            foreach (var list in user.Lists)
+            {
+                _context.Entry(list)
+                    .Collection(l => l.Items)
+                    .Load();
+            }
+
             var allItems = user.Lists.SelectMany(l => l.Items).ToList();
             var completedItems = allItems.Where(i => i.IsCompleted).ToList();
 
@@ -104,7 +115,7 @@ namespace Coursework.Pages
     <main>
         <div id='content'>
             <div class='head'>
-                <h1>Отчёт #1</h1>
+                <h1>Отчёт о пользователе</h1>
                 <div class='text'>Подготовлен для {user.Email}</div>
                 <div class='text'>Создан {DateTime.Now:dd.MM.yyyy HH:mm}</div>
             </div>
