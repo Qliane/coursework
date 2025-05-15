@@ -240,7 +240,6 @@ app.component('list', {
             this.items.update();
 
             updateItem(this.items.data[i1_]);
-            updateItem(this.items.data[i2_]);
 
             if (i2 == this.draggableElementIndex) {
                 this.draggableElementIndex = i1;

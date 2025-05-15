@@ -95,7 +95,15 @@ public class ListModel : LoginModel
         var items = _context.Items.Where(p=>p.Id == Id);
         if(items.Count() > 0){
             var item = items.First();
-            item.Order = Order;
+            if(item.Order != Order){
+                var sameOrders = _context.Items.Where(p=>p.Order == Order);
+                if(sameOrders.Count() > 0){
+                    var sameOrderItem = sameOrders.First();
+                    sameOrderItem.Order = item.Order;
+                    _context.SaveChanges();
+                    item.Order = this.Order;
+                }
+            }
             item.Color = Color;
             item.IsCompleted = (Selected == 1);
             if(Selected == 1){
