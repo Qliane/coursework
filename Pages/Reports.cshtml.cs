@@ -14,11 +14,27 @@ public class ReportsModel : LoginModel
 
     }
 
+    public async Task<ActionResult> OnGetDelete(int Id)
+    {
+        var e = _context.Reports.FirstOrDefault(p => p.Id == Id);
+        if (e == null) return new NotFoundResult();
+        _context.Reports.Remove(e);
+        _context.SaveChanges();
+        return new RedirectResult("/Reports");
+    }
+    public async Task<ActionResult> OnGetDownload(int Id)
+    {
+        var e = _context.Reports.FirstOrDefault(p => p.Id == Id);
+        if (e == null) return new NotFoundResult();
+        return Content(e.HTML, "text/html");
+    }
     public async Task<List<Report>> GetReports()
     {
         var user = await this.GetUser();
         if (user == null) return [];
         var userId = user.Id;
-        return _context.Reports.Where(p => p.UserId == userId).ToList();
+        return _context.Reports.Where(p => p.UserId == userId)
+                .OrderByDescending(p => p.createdAt)   // Сначала новые (по убыванию даты);
+                .ToList();
     }
 }

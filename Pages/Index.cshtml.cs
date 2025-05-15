@@ -80,7 +80,8 @@ public class IndexModel : LoginModel
         this.ViewData["UserEmail"] = await GetUserEmail();
         if (user != null)
         {
-            var lists = _context.Lists.Where(p=>p.UserId == user.Id);
+            var lists = _context.Lists.Where(p => p.UserId == user.Id)
+                .OrderByDescending(p => p.CreatedAt);  // Сначала новые (по убыванию даты);
             this.ViewData["IsEmpty"] = lists.Count() <= 0;
             this.ViewData["Lists"] = lists.ToList();
             return new PageResult();

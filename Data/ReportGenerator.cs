@@ -33,7 +33,7 @@ namespace Coursework.Pages
             // добавить проверку на владение
             var report = new Report()
             {
-                Title = "Отчёт о записи \"" + list.Text + "\"",
+                Title = "Отчёт о списке \"" + list.Text + "\"",
                 createdAt = DateTime.UtcNow,
                 Type = 1,
                 UserId = user.Id,
@@ -52,7 +52,7 @@ namespace Coursework.Pages
             // добавить проверку на владение
             var report = new Report()
             {
-                Title = "Подробный отчёт о пользователе",
+                Title = "Отчёт о пользователе",
                 createdAt = DateTime.UtcNow,
                 Type = 0,
                 UserId = user.Id,

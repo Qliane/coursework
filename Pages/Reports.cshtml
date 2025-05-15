@@ -10,33 +10,48 @@
     <link rel="stylesheet" href="~/css/lists.css">
     <link rel="stylesheet" href="~/css/reports.css">
 }
+@if (reports.Count() == 0)
+{
+    <div id="list-empty">
+        <div class="content">
+            <div class="image"><img src="./images/list-empty.png" alt="Список пуст"></div>
+            <div class="data">
+                <div class="text">
+                    <div class="title">У вас пока нет отчётов</div>
+                    <div class="text">Вы можете создавать отчёты на странице пользователя или на странице списка дел</div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
 <div id="list">
-
     <div id="lists">
-
         @foreach (var item in reports)
         {
             <div class="list report">
                 <div class="content">
                     <div class="type">
-                        @if(item.Type == 1){
+                        @if (item.Type == 1)
+                        {
                             <span>Cписок дел</span>
                         }
-                        else{
+                        else
+                        {
                             <span>Пользователь</span>
                         }
                     </div>
                     <div class="title">
-                        <a href="/ViewReport/0">@item.Title</a>
+                        <a href="?handler=Download&Id=@item.Id">@item.Title</a>
                     </div>
                     <div class="content">
                         Дата создания: @item.createdAt.ToString("dd.MM.yyyy HH:mm")
                     </div>
                     <div class="buttons">
-                        <a href="?handle=Download&id=@item.Id" download="@item.Title" class="circle-button circle-button-30">
+                        <a href="?handler=Download&Id=@item.Id" download="@(item.Title + ".html")"
+                            class="circle-button circle-button-30">
                             <img src="./images/download.svg" alt="">
                         </a>
-                        <a href="?handle=Delete&id=@item.Id" class="circle-button circle-button-30">
+                        <a href="?handler=Delete&Id=@item.Id" class="circle-button circle-button-30">
                             <img src="./images/trash-2.svg" alt="">
                         </a>
                     </div>

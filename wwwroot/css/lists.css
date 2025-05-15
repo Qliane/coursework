@@ -8,7 +8,7 @@
     margin-top: 10px;
 }
 
-#buttons>.button-link{
+#buttons>.button-link {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -52,6 +52,12 @@
 @media (max-width: 1176px) {
     #list-empty>.content {
         flex-direction: column;
+    }
+
+    #list-empty>.content>.data>.text>.title,
+    #list-empty>.content>.image,
+    #list-empty>.content>.data>.text>.text {
+        text-align: center;
     }
 
     #list .data>.button {
@@ -120,9 +126,11 @@
 #titleButton::after {
     content: url(../images/plus.svg);
 }
+
 #titleButton:hover {
-  box-shadow: -4px 4px 4px 0px rgba(255, 255, 255, 0.5) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: -4px 4px 4px 0px rgba(255, 255, 255, 0.5) inset, 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
+
 #titleButton {
     border-radius: 50%;
     text-decoration: none;
