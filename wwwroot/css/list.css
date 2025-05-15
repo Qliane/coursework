@@ -7,6 +7,16 @@
     background-color: #D4DCE3;
 }
 
+
+#butons{
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+#butons>a>img{
+    width: 14px;
+}
+
 #list {
     margin-top: 20px;
 }

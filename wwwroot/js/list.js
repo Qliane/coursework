@@ -1,6 +1,5 @@
 import { createApp, reactive } from './vue.esm-browser.js'
 
-
 class SortedArray {
     data = [];
     handler = (a, b) => { a - b };
@@ -82,7 +81,7 @@ app.component('list-item', {
                 updateItem(this.item);
             }
         },
-        onSelect(){
+        onSelect() {
             this.item.selected = (!this.item.selected ? 1 : 0)
             updateItem(this.item);
         },
@@ -219,7 +218,7 @@ app.component('list', {
                 this.draggableElementIndex = element.index;
         },
 
-        localIdexToDataIndex(i){
+        localIdexToDataIndex(i) {
             let index = 0;
             for (const element of this.items.data) {
                 if (element.selected == (this.checked == "1")) {
@@ -394,7 +393,15 @@ window.addEventListener('load', () => {
     const url = window.location.href;
     const id = url.match(/\/List\/(\d+)/)[1];
 
+    const deleteButton = document.getElementById('deleteButton')
+
     const createTaskButton = document.getElementById('button-create-task');
+
+    deleteButton.onclick = (e) => {
+        if (!confirm("Вы точно хотите удалить этот список?")) {
+            e.preventDefault();
+        }
+    }
 
     createTaskButton?.addEventListener('click', e => {
         let text = prompt("Текст новой задачи");

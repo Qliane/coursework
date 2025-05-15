@@ -33,7 +33,18 @@ public class ListModel : LoginModel
         return lists.First();
     }
 
-    public async Task<ActionResult> OnGetGetReport(int ListID){
+
+    public async Task<ActionResult> OnGetDelete(int ListID)
+    {
+        var list = await this.GetList(ListID);
+        if (list == null) new NotFoundResult();
+        _context.Lists.Remove(list);
+        _context.SaveChanges();
+        return new RedirectResult("/Index");
+    }
+
+    public async Task<ActionResult> OnGetGetReport(int ListID)
+    {
         var rg = new ReportGenerator(this._context);
         var userEmail = await this.GetUserEmail();
         var report = rg.GenerateListReport(ListID, userEmail);
@@ -97,21 +108,21 @@ public class ListModel : LoginModel
             var item = items.First();
             if(item.Order != Order){
                 var sameOrders = _context.Items.Where(p=>p.Order == Order);
-                if(sameOrders.Count() > 0){
+                if (sameOrders.Count() > 0)
+                {
                     var sameOrderItem = sameOrders.First();
                     sameOrderItem.Order = item.Order;
-                    _context.SaveChanges();
                     item.Order = this.Order;
                 }
             }
             item.Color = Color;
-            item.IsCompleted = (Selected == 1);
+            item.IsCompleted = Selected == 1;
             if(Selected == 1){
                 item.CompletedAt = DateTime.UtcNow;
             }
             Console.WriteLine("SELECTED: ", Selected);
             item.Text = Text;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
         return new JsonResult(new {
             ok = 1

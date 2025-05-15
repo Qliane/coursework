@@ -9,6 +9,15 @@
 }
 
 @Html.AntiForgeryToken()
+<div id="butons">
+    <a href="?handler=GetReport" download="Отчёт о записи @list.Text" class="circle-button circle-button-30">
+        <img src="~/images/report.svg" alt="">
+    </a>
+
+    <a href="?handler=Delete" class="circle-button circle-button-30" id="deleteButton">
+        <img src="~/images/trash-1.svg" alt="">
+    </a>
+</div>
 <div id="app">
     <div id="active-tasks" class="tasks">
         <div class="content">

@@ -153,6 +153,7 @@ namespace Coursework.Pages
         {
             return @"* {
                 font-family: sans-serif;
+                word-break: break-all;
             }
 
             body {
