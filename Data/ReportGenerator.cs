@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using NuGet.Common;
 
 namespace Coursework.Pages
 {
@@ -15,15 +16,56 @@ namespace Coursework.Pages
             _context = context;
         }
 
-        // Существующий метод для отчёта по пользователю
-        public string GenerateReport(string userEmail)
+        public string CreateListReport(int listId, ApplicationUser user)
         {
-            var user = _context.Users
-                .OfType<ApplicationUser>()
-                .Include(u => u.Lists)
-                .ThenInclude(l => l.Items)
-                .FirstOrDefault(u => u.Email == userEmail);
 
+            var list = _context.Lists
+                .Include(l => l.User)
+                .Include(l => l.Items)
+                .FirstOrDefault(l => l.Id == listId && l.User.Email == user.Email);
+
+            if (list == null)
+            {
+                return "<html><body><h1>Список не найден</h1></body></html>";
+            }
+
+            var html = this.GenerateListReport(list);
+            // добавить проверку на владение
+            var report = new Report()
+            {
+                Title = "Отчёт о записи \"" + list.Text + "\"",
+                createdAt = DateTime.UtcNow,
+                Type = 1,
+                UserId = user.Id,
+                HTML = html
+            };
+            _context.Reports.Add(report);
+            _context.SaveChanges();
+            return html;
+        }
+
+
+        public string CreateReport(ApplicationUser user)
+        {
+
+            var html = this.GenerateReport(user);
+            // добавить проверку на владение
+            var report = new Report()
+            {
+                Title = "Подробный отчёт о пользователе",
+                createdAt = DateTime.UtcNow,
+                Type = 0,
+                UserId = user.Id,
+                HTML = html
+            };
+            _context.Reports.Add(report);
+            _context.SaveChanges();
+            return html;
+        }
+
+        // Существующий метод для отчёта по пользователю
+        private string GenerateReport(ApplicationUser user)
+        {
             if (user == null)
             {
                 return "<html><body><h1>Пользователь не найден</h1></body></html>";
@@ -63,7 +105,7 @@ namespace Coursework.Pages
         <div id='content'>
             <div class='head'>
                 <h1>Отчёт #1</h1>
-                <div class='text'>Подготовлен для {userEmail}</div>
+                <div class='text'>Подготовлен для {user.Email}</div>
                 <div class='text'>Создан {DateTime.Now:dd.MM.yyyy HH:mm}</div>
             </div>
             <div class='body'>
@@ -80,18 +122,8 @@ namespace Coursework.Pages
         }
 
         // Новый метод для отчёта по конкретному списку
-        public string GenerateListReport(int listId, string userEmail)
+        private string GenerateListReport(List list)
         {
-            var list = _context.Lists
-                .Include(l => l.User)
-                .Include(l => l.Items)
-                .FirstOrDefault(l => l.Id == listId && l.User.Email == userEmail);
-
-            if (list == null)
-            {
-                return "<html><body><h1>Список не найден</h1></body></html>";
-            }
-
             var completedItems = list.Items.Where(i => i.IsCompleted).ToList();
             int completedCount = completedItems.Count;
             int pendingCount = list.Items.Count - completedCount;
@@ -126,7 +158,7 @@ namespace Coursework.Pages
         <div id='content'>
             <div class='head'>
                 <h1>Отчёт по списку</h1>
-                <div class='text'>Подготовлен для {userEmail}</div>
+                <div class='text'>Подготовлен для {list.User.Email}</div>
                 <div class='text'>Создан {DateTime.Now:dd.MM.yyyy HH:mm}</div>
             </div>
             <div class='body'>

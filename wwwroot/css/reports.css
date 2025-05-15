@@ -1,0 +1,25 @@
+#lists>.list.report>.content{
+    gap: 0;
+}
+
+#lists>.list.report .type{
+    font-size: 14px;
+    color: var(--light-blue-text);
+}
+
+#lists>.list.report .title{
+    margin-top: 5px;
+}
+
+#lists>.list.report>.content>.content{
+    margin-top: 15px;
+}
+.report .buttons{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+#lists > .list{
+    padding: 30px;
+}

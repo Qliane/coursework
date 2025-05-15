@@ -6,6 +6,7 @@ public class AppDbContext : IdentityDbContext{
 
     public DbSet<List> Lists { get; set; }
     public DbSet<Item> Items { get; set; }
+    public DbSet<Report> Reports { get; set; }
     public AppDbContext(DbContextOptions<AppDbContext> options) : base (options){
         Database.EnsureCreated();
     }

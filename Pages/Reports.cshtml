@@ -1,0 +1,47 @@
+@page
+@model ReportsModel
+
+@{
+    ViewData["Title"] = "Отчёты";
+    var reports = await Model.GetReports();
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/lists.css">
+    <link rel="stylesheet" href="~/css/reports.css">
+}
+<div id="list">
+
+    <div id="lists">
+
+        @foreach (var item in reports)
+        {
+            <div class="list report">
+                <div class="content">
+                    <div class="type">
+                        @if(item.Type == 1){
+                            <span>Cписок дел</span>
+                        }
+                        else{
+                            <span>Пользователь</span>
+                        }
+                    </div>
+                    <div class="title">
+                        <a href="/ViewReport/0">Отчёт о записи "Хотелочки"</a>
+                    </div>
+                    <div class="content">
+                        Дата создания: 15.05.2025 15:10
+                    </div>
+                    <div class="buttons">
+                        <a href="" class="circle-button circle-button-30">
+                            <img src="./images/download.svg" alt="">
+                        </a>
+                        <a href="" class="circle-button circle-button-30">
+                            <img src="./images/trash-2.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

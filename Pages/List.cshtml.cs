@@ -1,10 +1,8 @@
 
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.DotNet.MSIdentity.Shared;
 
 namespace Coursework.Pages;
 
@@ -46,8 +44,9 @@ public class ListModel : LoginModel
     public async Task<ActionResult> OnGetGetReport(int ListID)
     {
         var rg = new ReportGenerator(this._context);
-        var userEmail = await this.GetUserEmail();
-        var report = rg.GenerateListReport(ListID, userEmail);
+        var user = await this.GetUser();
+        if (user == null) return new NotFoundResult();
+        var report = rg.CreateListReport(ListID, user);
         return Content(report, "text/html");
     }
     public async Task<ActionResult> OnGetAddTask(int ListID, string Text)

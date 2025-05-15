@@ -40,7 +40,7 @@ public class Item
 
     [Required]
     public int ListId { get; set; }  // Внешний ключ для списка
-    
+
     [Required]
     public List List { get; set; }  // Навигационное свойство к списку
 
@@ -54,11 +54,21 @@ public class Item
     public bool IsCompleted { get; set; } = false;
 
     public int Order { get; set; }  // Поле для порядка в списке
-    
+
     [Required]
     public DateTime CreatedAt { get; set; }
 
-    
+
     [Required]
     public DateTime CompletedAt { get; set; }
+}
+
+public class Report
+{
+    public int Id { get; set; }
+    public DateTime createdAt { get; set; }
+    public string UserId { get; set; }
+    public string Title { get; set; }
+    public string HTML { get; set; }
+    public int Type { get; set; }
 }
