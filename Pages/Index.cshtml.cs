@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -64,6 +65,11 @@ public class IndexModel : LoginModel
         });
     }
 
+    public async Task<ActionResult> OnGetLogout()
+    {
+        await HttpContext.SignOutAsync();
+        return new RedirectResult("/Identity/Account/Login");
+    }
     public async Task<ActionResult> OnGetGenerateUserReport()
     {
         var rg = new ReportGenerator(this._context);
