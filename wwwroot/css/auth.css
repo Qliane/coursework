@@ -11,6 +11,7 @@ body{
 }
 
 #content{
+    margin-top: 10px;
     padding-top: 87px;
     width: 564px;
     height: 795px;

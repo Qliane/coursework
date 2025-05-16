@@ -36,4 +36,8 @@ main{
     #form{
         margin-top: 35px;
     }
+
+    #form button{
+        padding: 17px 48px;
+    }
 }

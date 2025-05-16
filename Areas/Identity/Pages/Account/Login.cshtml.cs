@@ -108,6 +108,7 @@ namespace Coursework.Areas.Identity.Pages.Account
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
+            // TODO: WRITE WALIDATION
             bool isValid = true;
 
             if (isValid)

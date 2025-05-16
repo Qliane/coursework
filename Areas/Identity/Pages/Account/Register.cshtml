@@ -4,6 +4,10 @@
     ViewData["Title"] = "Register";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/registration.css">
+}
+
 <form id="form" asp-route-returnUrl="@Model.ReturnUrl" method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
     <label class="input">
@@ -31,17 +35,6 @@
         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
     </label>
     <div class="form-footer">
-        <label for="privacy" class="input-checkbox">
-            <input type="checkbox" name="privacy" id="privacy" hidden>
-            <label for="privacy" class="checkbox">
-
-            </label>
-            <div class="text">
-                <div>
-                    Я соглашаюсь с <a href="./confidence.html">Политикой конфиденциальности</a>
-                </div>
-            </div>
-        </label>
         <button type="submit">Зарегистрироваться</button>
         <a href="/Identity/Account/Login">Есть аккаунт? Войдите!</a>
 </form>
