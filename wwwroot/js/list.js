@@ -1,4 +1,4 @@
-import { createApp, reactive } from './vue.esm-browser.js'
+import { computed, createApp, reactive } from './vue.esm-browser.js'
 
 class SortedArray {
     data = [];
@@ -194,8 +194,7 @@ app.component('list', {
 
     data() {
         return {
-            items: (data),
-
+            items: data,
             tooltips: [
             ],
 
@@ -204,10 +203,9 @@ app.component('list', {
                 x: 0,
                 y: 0,
             },
-            draggableElementIndex: null,
+            draggableElementId: null,
         }
     },
-
     methods: {
         select(items) {
             return items.filter((item) => (item.selected == (this.checked == "1")));
@@ -215,37 +213,30 @@ app.component('list', {
 
         selectItem(element) {
             if (this.selectState == dragAndDropStates.CLICKED)
-                this.draggableElementIndex = element.index;
+                this.draggableElementId = element.id;
         },
 
-        localIdexToDataIndex(i) {
-            let index = 0;
-            for (const element of this.items.data) {
-                if (element.selected == (this.checked == "1")) {
-                    i--;
-                }
-                if (i < 0) return index;
-                index++;
+        getIndexById(id) {
+            const i = this.items.data.findIndex((item)=>item.id == id);
+            if(i == -1){
+                return null
+            }else{
+                return i;
             }
-            return null;
         },
 
-        switch(i1, i2) {
-            const i1_ = this.localIdexToDataIndex(i1);
-            const i2_ = this.localIdexToDataIndex(i2);
-            const temp = this.items.data[i1_].order;
-            this.items.data[i1_].order = this.items.data[i2_].order;
-            this.items.data[i2_].order = temp;
+        switch(id1, id2) {
+            const i1 = this.getIndexById(id1);
+            const i2 = this.getIndexById(id2);
+            const temp = this.items.data[i1].order;
+            this.items.data[i1].order = this.items.data[i2].order;
+            this.items.data[i2].order = temp;
+            
+            if(this.items.data[i1].order != this.items.data[i2].order){
+                console.log(id1, id2, this.items.data[i1], this.items.data[i2])
+            }
+
             this.items.update();
-
-            updateItem(this.items.data[i1_]);
-
-            if (i2 == this.draggableElementIndex) {
-                this.draggableElementIndex = i1;
-            }
-            else if (i1 == this.draggableElementIndex) {
-                this.draggableElementIndex = i2;
-            }
         },
 
         onMoveStart(element, x, y) {
@@ -260,7 +251,7 @@ app.component('list', {
 
         onMouseOver(element) {
             if (this.selectState == dragAndDropStates.RELEASED) {
-                this.switch(element.index, this.draggableElementIndex);
+                this.switch(element.id, this.draggableElementId);
             }
         },
 
@@ -285,11 +276,13 @@ app.component('list', {
         mouseupHandler(e) {
             if (this.selectState == dragAndDropStates.RELEASED) {
                 console.log("send to server");
+                const i1 = this.getIndexById(this.draggableElementId);
+                updateItem(this.items.data[i1]);
             }
             this.selectState = dragAndDropStates.NONE;
         },
-        deleteItem(index) {
-            const i = this.localIdexToDataIndex(index);
+        deleteItem(id) {
+            const i = this.getIndexById(id);
             if (confirm("Вы действительно хотите удалить запись?")) {
                 removeItem(data.data[i])
                 this.items.remove(i);
@@ -302,9 +295,8 @@ app.component('list', {
             const item = element.closest(".list-item");
             if (item) {
                 this.selectState = dragAndDropStates.RELEASED
-                const id = Array.from(this.$el.querySelectorAll('.list-item')).indexOf(item);
-                console.log(id);
-                this.switch(id, this.draggableElementIndex);
+                const id = item.dataset.id;
+                this.switch(id, this.draggableElementId);
             }
         },
 
@@ -342,7 +334,7 @@ app.component('list', {
                 <div v-if="checked == '0'"> У вас нет активных задач. </div>
                 <div v-else> Когда вы выполните задачу, она будет здесь </div>
             </div>
-            <list-item v-for="(item, index) in select(items.data)" v-bind:key="item.id" v-bind:createToolTip="createToolTip" v-bind:deleteItem="deleteItem.bind(this, index)" v-bind:item="item" v-bind:index="index" v-bind:touchMove="touchMove" v-bind:id="item.id" v-bind:order="item.order" v-bind:t="item.text" v-bind:mouseoverHandle="onMouseOver" v-bind:moveHandler="onMoveStart"></list-item>
+            <list-item v-for="(item, index) in select(items.data)" v-bind:key="item.id" v-bind:data-id="item.id" v-bind:createToolTip="createToolTip" v-bind:deleteItem="deleteItem.bind(this, index)" v-bind:item="item" v-bind:index="index" v-bind:touchMove="touchMove" v-bind:id="item.id" v-bind:order="item.order" v-bind:t="item.text" v-bind:mouseoverHandle="onMouseOver" v-bind:moveHandler="onMoveStart"></list-item>
         </div>
         <tooltip-color v-for="(item, index) in tooltips" v-bind:key="item.id" v-bind:data="item" v-bind:onCheckHandler="tooltipHandler"></tooltip-color>
     </div>

@@ -85,45 +85,46 @@ public class ListModel : LoginModel
     public string Text { get; set; }
     public async Task<ActionResult> OnPostRemove()
     {
-        var items = _context.Items.Where(p=>p.Id == Id);
+        var items = _context.Items.Where(p => p.Id == Id);
         var ok = false;
-        if(items.Count() > 0){
+        if (items.Count() > 0)
+        {
             ok = true;
             var item = items.First();
             _context.Items.Remove(item);
             _context.SaveChanges();
         }
-        return new JsonResult(new {
+        return new JsonResult(new
+        {
             ok = ok,
             this.Id
         });
     }
 
-    
+
     public async Task<ActionResult> OnPostUpdate()
     {
-        var items = _context.Items.Where(p=>p.Id == Id);
-        if(items.Count() > 0){
-            var item = items.First();
-            if(item.Order != Order){
-                var sameOrders = _context.Items.Where(p=>p.Order == Order);
-                if (sameOrders.Count() > 0)
-                {
-                    var sameOrderItem = sameOrders.First();
-                    sameOrderItem.Order = item.Order;
-                    item.Order = this.Order;
-                }
-            }
-            item.Color = Color;
-            item.IsCompleted = Selected == 1;
-            if(Selected == 1){
-                item.CompletedAt = DateTime.UtcNow;
-            }
-            Console.WriteLine("SELECTED: ", Selected);
-            item.Text = Text;
-            await _context.SaveChangesAsync();
+        var item = _context.Items.FirstOrDefault(p => p.Id == Id);
+        if (item == null) return new NotFoundResult();
+        if (item.Order != Order)
+        {
+            var sameOrderItem = _context.Items.FirstOrDefault(p => p.Order == Order && p.ListId == item.ListId);
+            if (sameOrderItem == null) return new NotFoundResult();
+            int order = item.Order;
+            int newOrder = this.Order;
+            sameOrderItem.Order = order;
+            item.Order = newOrder;
         }
-        return new JsonResult(new {
+        item.Color = Color;
+        item.IsCompleted = Selected == 1;
+        if (Selected == 1)
+        {
+            item.CompletedAt = DateTime.UtcNow;
+        }
+        item.Text = Text;
+        await _context.SaveChangesAsync();
+        return new JsonResult(new
+        {
             ok = 1
         });
     }

@@ -89,6 +89,14 @@ public class IndexModel : LoginModel
             var lists = _context.Lists.Where(p => p.UserId == user.Id)
                 .OrderByDescending(p => p.CreatedAt);  // Сначала новые (по убыванию даты);
             this.ViewData["IsEmpty"] = lists.Count() <= 0;
+            foreach (var list in lists)
+            {
+                _context.Entry(list)
+                    .Collection(l => l.Items)
+                    .Load();
+
+                list.Items.OrderBy(i => i.Order);
+            }
             this.ViewData["Lists"] = lists.ToList();
             return new PageResult();
         }
