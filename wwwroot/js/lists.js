@@ -1,13 +1,13 @@
 
 
 window.addEventListener('load', ()=>{
-    const AddURL = "/?handler=AddList";
     const titleButton = document.getElementById('titleButton');
+    const addButtons = document.getElementsByClassName('add-list-button');
     const token = document.querySelector("input[name='__RequestVerificationToken']").value;
 
     if(titleButton === null) return;
 
-    titleButton.addEventListener('click', ()=>{
+    const handler = (e)=>{
         const formData = new FormData();
         const name = prompt("Введте название записи");
         if(name == null) return;
@@ -27,5 +27,12 @@ window.addEventListener('load', ()=>{
                 }
             })
         })
-    })
+        e.preventDefault();
+    }
+    
+    for (const button of addButtons) {
+        button.addEventListener('click', handler);
+    }
+
+    titleButton.addEventListener('click', handler);
 });

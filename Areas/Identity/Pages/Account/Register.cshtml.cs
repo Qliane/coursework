@@ -125,11 +125,6 @@ namespace Coursework.Areas.Identity.Pages.Account
             }
 
 
-            Console.WriteLine("================================");
-            Console.WriteLine(Input.ConfirmPassword);
-            Console.WriteLine("================================");
-
-
             // Проверка, что пароль не пустой
             if (string.IsNullOrWhiteSpace(Input.ConfirmPassword))
             {
@@ -195,7 +190,16 @@ namespace Coursework.Areas.Identity.Pages.Account
                 }
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    string russianMessage = error.Code switch
+                    {
+                        "DuplicateUserName" => "Пользователь с таким email уже существует.",
+                        "PasswordTooShort" => "Пароль должен содержать минимум 6 символов.",
+                        "PasswordRequiresNonAlphanumeric" => "Пароль должен содержать хотя бы один спецсимвол (!, @, # и т.д.).",
+                        "PasswordRequiresDigit" => "Пароль должен содержать хотя бы одну цифру.",
+                        "PasswordRequiresUpper" => "Пароль должен содержать хотя бы одну заглавную букву.",
+                        _ => error.Description // Остальные ошибки оставляем как есть (или добавляем свои)
+                    };
+                    ModelState.AddModelError(string.Empty, russianMessage);
                 }
             }
 
