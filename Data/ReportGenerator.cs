@@ -18,19 +18,17 @@ namespace Coursework.Pages
 
         public string CreateListReport(int listId, ApplicationUser user)
         {
-
             var list = _context.Lists
                 .Include(l => l.User)
                 .Include(l => l.Items)
-                .FirstOrDefault(l => l.Id == listId && l.User.Email == user.Email);
+                .FirstOrDefault(l => l.Id == listId && l.UserId == user.Id); // Изменил проверку на UserId
 
             if (list == null)
             {
-                return "<html><body><h1>Список не найден</h1></body></html>";
+                return "<html><body><h1>Список не найден или у вас нет доступа</h1></body></html>";
             }
 
             var html = this.GenerateListReport(list);
-            // добавить проверку на владение
             var report = new Report()
             {
                 Title = "Отчёт о списке \"" + list.Text + "\"",
@@ -47,9 +45,8 @@ namespace Coursework.Pages
 
         public string CreateReport(ApplicationUser user)
         {
-
+            // Добавить проверку на владение
             var html = this.GenerateReport(user);
-            // добавить проверку на владение
             var report = new Report()
             {
                 Title = "Отчёт о пользователе",

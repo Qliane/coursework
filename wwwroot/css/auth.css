@@ -10,6 +10,10 @@ body{
     width: 100%;
 }
 
+.validation-summary-errors{
+    padding-left: 20px;
+}
+
 #content{
     margin-top: 10px;
     padding-top: 87px;

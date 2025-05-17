@@ -109,13 +109,53 @@ namespace Coursework.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            bool IsCustomValid = true;
-            Console.WriteLine("==================================");
-            Console.WriteLine("REGISTER");
-            Console.WriteLine(IsCustomValid ? "VALID" : "INVALID");
+            bool isValid = true;
+
+
+            // Проверка, что email не пустой и соответствует формату email
+            if (string.IsNullOrWhiteSpace(Input.Email))
+            {
+                ModelState.AddModelError(string.Empty, "Введите почту.");
+                isValid = false;
+            }
+            else if (!new EmailAddressAttribute().IsValid(Input.Email))
+            {
+                ModelState.AddModelError(string.Empty, "Некорректный формат почты.");
+                isValid = false;
+            }
+
+            
+
+            // Проверка, что пароль не пустой
+            if (string.IsNullOrWhiteSpace(Input.ConfirmPassword))
+            {
+                ModelState.AddModelError(string.Empty, "Подтвердите пароль.");
+                isValid = false;
+            }
+
+            // Проверка, что пароль не пустой
+            if (Input.Password != Input.ConfirmPassword)
+            {
+                ModelState.AddModelError(string.Empty, "Пароли должны совпадать.");
+                isValid = false;
+            }
+
+            // Проверка, что пароль не пустой
+            if (string.IsNullOrWhiteSpace(Input.Password))
+            {
+                ModelState.AddModelError(string.Empty, "Введите пароль.");
+                isValid = false;
+            }
+            // Дополнительные проверки пароля (опционально)
+            else if (Input.Password.Length < 6) // Минимальная длина пароля
+            {
+                ModelState.AddModelError(string.Empty, "Пароль должен быть больше 6.");
+                isValid = false;
+            }
+
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (IsCustomValid)
+            if (isValid)
             {
                 var user = CreateUser();
 

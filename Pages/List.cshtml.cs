@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -26,16 +27,18 @@ public class ListModel : LoginModel
     private async Task<List?> GetList(int ListId)
     {
         var user = await this.GetUser();
-        var lists = _context.Lists.Where(p => p.Id == ListId && p.UserId == user.Id);
-        if (lists.Count() == 0) return null;
-        return lists.First();
+        if (user == null) return null;
+
+        return _context.Lists
+            .FirstOrDefault(p => p.Id == ListId && p.UserId == user.Id);
     }
 
 
     public async Task<ActionResult> OnGetDelete(int ListID)
     {
         var list = await this.GetList(ListID);
-        if (list == null) new NotFoundResult();
+        if (list == null) return new NotFoundResult();
+
         _context.Lists.Remove(list);
         _context.SaveChanges();
         return new RedirectResult("/Index");
@@ -85,26 +88,30 @@ public class ListModel : LoginModel
     public string Text { get; set; }
     public async Task<ActionResult> OnPostRemove()
     {
-        var items = _context.Items.Where(p => p.Id == Id);
-        var ok = false;
-        if (items.Count() > 0)
-        {
-            ok = true;
-            var item = items.First();
-            _context.Items.Remove(item);
-            _context.SaveChanges();
-        }
-        return new JsonResult(new
-        {
-            ok = ok,
-            this.Id
-        });
+        var user = await this.GetUser();
+        if (user == null) return new NotFoundResult();
+
+        var item = _context.Items
+            .Include(i => i.List)
+            .FirstOrDefault(p => p.Id == Id && p.List.UserId == user.Id);
+
+        if (item == null) return new NotFoundResult();
+
+        _context.Items.Remove(item);
+        _context.SaveChanges();
+        return new JsonResult(new { ok = true, this.Id });
     }
 
 
     public async Task<ActionResult> OnPostUpdate()
     {
-        var item = _context.Items.FirstOrDefault(p => p.Id == Id);
+        var user = await this.GetUser();
+        if (user == null) return new NotFoundResult();
+
+        var item = _context.Items
+            .Include(i => i.List)
+            .FirstOrDefault(p => p.Id == Id && p.List.UserId == user.Id);
+
         if (item == null) return new NotFoundResult();
         if (item.Order != Order)
         {
@@ -131,6 +138,7 @@ public class ListModel : LoginModel
 
     public async Task<ActionResult> OnGetGetTasks(int ListID)
     {
+        // Добавить проверку на владение
         var list = await GetList(ListID);
         if (list == null) return new BadRequestResult();
         var responseItems = new List<ResponseItem>();

@@ -108,8 +108,32 @@ namespace Coursework.Areas.Identity.Pages.Account
 
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
-            // TODO: WRITE WALIDATION
             bool isValid = true;
+            
+            // Проверка, что email не пустой и соответствует формату email
+            if (string.IsNullOrWhiteSpace(Input.Email))
+            {
+                ModelState.AddModelError(string.Empty, "Введите почту.");
+                isValid = false;
+            }
+            else if (!new EmailAddressAttribute().IsValid(Input.Email))
+            {
+                ModelState.AddModelError(string.Empty, "Некорректный формат почты.");
+                isValid = false;
+            }
+
+            // Проверка, что пароль не пустой
+            if (string.IsNullOrWhiteSpace(Input.Password))
+            {
+                ModelState.AddModelError(string.Empty, "Введите пароль.");
+                isValid = false;
+            }
+            // Дополнительные проверки пароля (опционально)
+            else if (Input.Password.Length < 6) // Минимальная длина пароля
+            {
+                ModelState.AddModelError(string.Empty, "Пароль должен быть больше 6.");
+                isValid = false;
+            }
 
             if (isValid)
             {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Coursework.Pages;
 
-[Authorize] 
+[Authorize]
 public class IndexModel : LoginModel
 {
     private readonly ILogger<IndexModel> _logger;
@@ -17,37 +17,18 @@ public class IndexModel : LoginModel
     }
 
 
-    public static List<Item> GetUncompletedItems(List list){
-        var items = list.Items;
-        var outList = new List<Item>();
-        foreach (var item in items){
-            if(!item.IsCompleted){
-                outList.Add(item);
-            }
-        }
-        return outList;
-    }
-
-    public List<Item> GetCompletedItems(List list){
-        var items = list.Items;
-        var outList = new List<Item>();
-        foreach (var item in items){
-            if(item.IsCompleted){
-                outList.Add(item);
-            }
-        }
-        return outList;
-    }
-
-
     [BindProperty]  // Для привязки данных из запроса
     public string Name { get; set; }
-    public async Task<ActionResult> OnPostAddListAsync(){
+    public async Task<ActionResult> OnPostAddListAsync()
+    {
+        // Добавить проверку на владение
         var user = await this.GetUser();
+        if (user == null) return new NotFoundResult();
+        
         if (string.IsNullOrEmpty(Name))
             return BadRequest("Name is required");
-        if(user == null) return new NotFoundResult();
-        var list = new List(){
+        var list = new List()
+        {
             Text = Name,
             UserId = user.Id,
             User = user,
@@ -56,8 +37,9 @@ public class IndexModel : LoginModel
 
         _context.Lists.Add(list);
         _context.SaveChanges();
-        
-        return new JsonResult(new List{
+
+        return new JsonResult(new List
+        {
             Id = list.Id,
             Text = list.Text,
             CreatedAt = list.CreatedAt,
@@ -80,7 +62,6 @@ public class IndexModel : LoginModel
     }
     public async Task<ActionResult> OnGet()
     {
-
         ViewData["IsShowButton"] = "1";
         var user = await _userManager.GetUserAsync(User);
         this.ViewData["UserEmail"] = await GetUserEmail();
