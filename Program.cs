@@ -1,11 +1,14 @@
+using System.Net;
 using Coursework.Pages;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDbContext<AppDbContext>(options=> options.UseSqlite("Data Source=app.db"));
+
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => 
 // Устанавливает, что требуется подтверждение учётной записи
@@ -54,6 +57,23 @@ builder.Services.ConfigureApplicationCookie(options =>
     // Продлевает срок действия билета, когда происходит запрос с билетом, срок действия которого истёк больше чем на половину
     options.SlidingExpiration = true;
 });
+
+
+
+// Добавляем поддержку INI-конфигурации
+builder.Configuration.AddIniFile("kestrel.ini", optional: false, reloadOnChange: false);
+builder.WebHost.UseKestrel(serverOptions =>
+{
+    // Получаем endpoints из конфигурации
+    var url = builder.Configuration.GetSection("Kestrel").GetChildren();
+
+    if (url.Count() == 0) return;
+    if (IPEndPoint.TryParse(url.First().Value, out var ipep))
+    {
+        serverOptions.Listen(ipep);
+    }
+});
+
 
 
 var app = builder.Build();

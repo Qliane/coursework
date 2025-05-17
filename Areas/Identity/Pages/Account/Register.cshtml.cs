@@ -75,7 +75,7 @@ namespace Coursework.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
+            [Required(ErrorMessage = "{0} должен быть заполнен")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -84,10 +84,10 @@ namespace Coursework.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "{0} должен быть заполнен")]
+            [StringLength(100, ErrorMessage = "{0} должен быть не меньше {2} и не больше {1} символов.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Пароль")]
             public string Password { get; set; }
 
             /// <summary>
@@ -95,8 +95,8 @@ namespace Coursework.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Подтверждение пароля")]
+            [Compare("Password", ErrorMessage = "Пароль и подтверждение пароля не совпадают.")]
             public string ConfirmPassword { get; set; }
         }
 
@@ -124,7 +124,11 @@ namespace Coursework.Areas.Identity.Pages.Account
                 isValid = false;
             }
 
-            
+
+            Console.WriteLine("================================");
+            Console.WriteLine(Input.ConfirmPassword);
+            Console.WriteLine("================================");
+
 
             // Проверка, что пароль не пустой
             if (string.IsNullOrWhiteSpace(Input.ConfirmPassword))
@@ -149,7 +153,7 @@ namespace Coursework.Areas.Identity.Pages.Account
             // Дополнительные проверки пароля (опционально)
             else if (Input.Password.Length < 6) // Минимальная длина пароля
             {
-                ModelState.AddModelError(string.Empty, "Пароль должен быть больше 6.");
+                ModelState.AddModelError(string.Empty, "Пароль должен быть больше 6 символов.");
                 isValid = false;
             }
 

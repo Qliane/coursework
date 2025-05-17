@@ -10,6 +10,8 @@ window.addEventListener('load', ()=>{
     titleButton.addEventListener('click', ()=>{
         const formData = new FormData();
         const name = prompt("Введте название записи");
+        if(name == null) return;
+        
         formData.append('Name', name);
         
         fetch('/?handler=AddList', {

@@ -156,7 +156,7 @@ namespace Coursework.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Не удалось войти в систему.");
                     return Page();
                 }
             }

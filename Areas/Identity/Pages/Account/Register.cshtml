@@ -14,7 +14,7 @@
         <span>
             Почта
         </span>
-        <input type="email" asp-for="Input.Email" name="email" placeholder="Введите адрес своей электронной почты"
+        <input type="email" asp-for="Input.Email" placeholder="Введите адрес своей электронной почты"
             autocomplete="username" aria-required="true">
         <span asp-validation-for="Input.Email" class="text-danger"></span>
     </label>
@@ -22,7 +22,7 @@
         <span>
             Пароль
         </span>
-        <input type="password" name="password" placeholder="Придумайте пароль" asp-for="Input.Password"
+        <input type="password" placeholder="Придумайте пароль" asp-for="Input.Password"
             autocomplete="new-password" aria-required="true">
         <span asp-validation-for="Input.Password" class="text-danger"></span>
     </label>
@@ -30,8 +30,8 @@
         <span>
             Подтвердите пароль
         </span>
-        <input type="password" name="password-confirm" placeholder="Введите пароль ещё раз"
-            asp-for="Input.ConfirmPassword" autocomplete="new-password">
+        <input type="password" placeholder="Введите пароль ещё раз"
+            asp-for="Input.ConfirmPassword">
         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
     </label>
     <div class="form-footer">
