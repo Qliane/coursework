@@ -71,6 +71,9 @@
     }
 }
 
+#lists button.checkbox.small{
+    cursor: auto;
+}
 #lists {
     margin-top: 34px;
     display: flex;
