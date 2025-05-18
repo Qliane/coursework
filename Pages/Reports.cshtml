@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="~/css/lists.css">
     <link rel="stylesheet" href="~/css/reports.css">
 }
+
+@section Scripts{
+    <script src="~/js/reports.js"></script>
+}
 @if (reports.Count() == 0)
 {
     <div id="list-empty">
@@ -51,7 +55,7 @@
                             class="circle-button circle-button-30">
                             <img src="./images/download.svg" alt="">
                         </a>
-                        <a href="?handler=Delete&Id=@item.Id" class="circle-button circle-button-30">
+                        <a href="?handler=Delete&Id=@item.Id" class="delete-report-button circle-button circle-button-30">
                             <img src="./images/trash-2.svg" alt="">
                         </a>
                     </div>
