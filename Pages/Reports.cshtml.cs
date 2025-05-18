@@ -14,6 +14,13 @@ public class ReportsModel : LoginModel
 
     }
 
+    public async Task<ActionResult> OnGet()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        ViewData["UserEmail"] = user.Email;
+        return Page();
+    }
+
     public async Task<ActionResult> OnGetDelete(int Id)
     {
         var user = await this.GetUser();
